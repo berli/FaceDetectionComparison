@@ -10,6 +10,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/bit_stream/bit_stream_kernel_1.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/bit_stream/bit_stream_kernel_1.cpp.o"
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/bsp/bsp.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/bsp/bsp.cpp.o"
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/cpu_dlib.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/cpu_dlib.cpp.o"
+  "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/cublas_dlibapi.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/cublas_dlibapi.cpp.o"
+  "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/cuda_data_ptr.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/cuda_data_ptr.cpp.o"
+  "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/cudnn_dlibapi.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/cudnn_dlibapi.cpp.o"
+  "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/curand_dlibapi.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/curand_dlibapi.cpp.o"
+  "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/gpu_data.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/gpu_data.cpp.o"
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/cuda/tensor_tools.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/cuda/tensor_tools.cpp.o"
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/data_io/image_dataset_metadata.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/data_io/image_dataset_metadata.cpp.o"
   "/home/berli/Test/FaceDetectionComparison/dlib/dlib/data_io/mnist.cpp" "/home/berli/Test/FaceDetectionComparison/build/dlib_build/CMakeFiles/dlib.dir/data_io/mnist.cpp.o"
@@ -68,6 +73,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/opencv4"
+  "/usr/local/cuda/include"
   )
 
 # Targets to which this target links.

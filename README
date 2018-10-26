@@ -29,3 +29,6 @@ python face_detection_XXXX.py <filename>
 
 **Python**
 run-all.py <filename>
+
+for opencv
+cmake -D WITH_TBB=ON -D WITH_OPENMP=ON -D WITH_IPP=ON -D CMAKE_BUILD_TYPE=RELEASE ../
