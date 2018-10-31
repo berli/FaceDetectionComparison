@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/dlib.dir/cuda/dlib_generated_cuda_dlib.cu.o"
-  "CMakeFiles/dlib.dir/cuda/dlib_generated_cusolver_dlibapi.cu.o"
   "CMakeFiles/dlib.dir/base64/base64_kernel_1.cpp.o"
   "CMakeFiles/dlib.dir/bigint/bigint_kernel_1.cpp.o"
   "CMakeFiles/dlib.dir/bigint/bigint_kernel_2.cpp.o"
@@ -59,11 +57,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/dlib.dir/image_saver/save_png.cpp.o"
   "CMakeFiles/dlib.dir/image_loader/jpeg_loader.cpp.o"
   "CMakeFiles/dlib.dir/image_saver/save_jpeg.cpp.o"
-  "CMakeFiles/dlib.dir/cuda/cudnn_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/cuda/cublas_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/cuda/curand_dlibapi.cpp.o"
-  "CMakeFiles/dlib.dir/cuda/cuda_data_ptr.cpp.o"
-  "CMakeFiles/dlib.dir/cuda/gpu_data.cpp.o"
   "libdlib.pdb"
   "libdlib.a"
 )

@@ -60,6 +60,17 @@ void detectFaceOpenCVDNN(Net net, Mat &frameOpenCVDNN)
 
 int main( int argc, const char** argv )
 {
+	/*
+	char pIPdataIn[] ="0|111.222.333.444:55";
+	char pIP[1024];
+	int pPort = 0;
+	int ret = sscanf(pIPdataIn,"%*[^|]|%[^:*]:%ld",pIP,&pPort);
+	int ip[20];
+	 cout<<"ret:"<<ret<<endl;
+	 cout<<"pIP:"<<pIP<<endl;
+	 cout<<"pPort:"<<pPort<<endl;
+	 return 0;
+	 */
 #ifdef CAFFE
   Net net = cv::dnn::readNetFromCaffe(caffeConfigFile, caffeWeightFile);
 #else
@@ -71,7 +82,10 @@ int main( int argc, const char** argv )
   if (argc == 1)
       source.open(0);
   else if(argc == 2)
-      source.open(argv[1]);
+  {
+      bool ret = source.open(argv[1]);
+	  cout<<"open ret = "<<ret<<endl;
+  }
   else if(argc == 3 && strcmp(argv[1], "img") == 0)
       frame = imread(argv[2]);
 

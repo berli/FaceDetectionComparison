@@ -4,6 +4,7 @@ PROJECT(face_detection)
 
 find_package( OpenCV REQUIRED )
 
+set(CMAKE_CXX_STANDARD 11)
 include_directories( ${OpenCV_INCLUDE_DIRS})
 
 include(./dlib/dlib/cmake)
