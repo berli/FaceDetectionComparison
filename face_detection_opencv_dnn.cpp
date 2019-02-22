@@ -36,6 +36,7 @@ void detectFaceOpenCVDNN(Net net, Mat &frameOpenCVDNN)
 #endif
 
     net.setInput(inputBlob, "data");
+    //net.setPreferableTarget(cv::dnn::DNN_TARGET_OPENCL);
     cv::Mat detection = net.forward("detection_out");
 
     cv::Mat detectionMat(detection.size[2], detection.size[3], CV_32F, detection.ptr<float>());

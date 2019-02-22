@@ -1,7 +1,11 @@
+
+# -*- coding: utf8 -*-)
 from __future__ import division
 import cv2
 import time
 import sys
+import os
+import shutil
 
 def detectFaceOpenCVDnn(net, frame):
     frameOpencvDnn = frame.copy()
@@ -28,7 +32,7 @@ if __name__ == "__main__" :
     # OpenCV DNN supports 2 networks.
     # 1. FP16 version of the original caffe implementation ( 5.4 MB )
     # 2. 8 bit Quantized version using Tensorflow ( 2.7 MB )
-    DNN = "TF"
+    DNN = "CAFFE"
     if DNN == "CAFFE":
         modelFile = "res10_300x300_ssd_iter_140000_fp16.caffemodel"
         configFile = "deploy.prototxt"
@@ -40,25 +44,33 @@ if __name__ == "__main__" :
 
     conf_threshold = 0.7
 
-    source = 0
+    path = ''
     if len(sys.argv) > 1:
-        source = sys.argv[1]
+        path = sys.argv[1]
 
-    cap = cv2.VideoCapture(source)
-    hasFrame, frame = cap.read()
+    #cap = cv2.VideoCapture(path)
 
-    vid_writer = cv2.VideoWriter('output-dnn-{}.avi'.format(str(source).split(".")[0]),cv2.VideoWriter_fourcc('M','J','P','G'), 15, (frame.shape[1],frame.shape[0]))
+    #vid_writer = cv2.VideoWriter('output-dnn-{}.avi'.format(str(source).split(".")[0]),cv2.VideoWriter_fourcc('M','J','P','G'), 15, (frame.shape[1],frame.shape[0]))
 
+    no_face = path+'/not_face/'
     frame_count = 0
     tt_opencvDnn = 0
-    while(1):
-        hasFrame, frame = cap.read()
-        if not hasFrame:
-            break
+    hasFrame = True
+    for source in os.listdir(path):
+        print 'file:',source
+        if os.path.isdir(path+'/'+source):
+            continue;
+        frame = cv2.imread(path+'/'+source)
+        if (frame == None).all():
+            continue;
+
         frame_count += 1
 
         t = time.time()
         outOpencvDnn, bboxes = detectFaceOpenCVDnn(net,frame)
+        if(len(bboxes) == 0):
+            shutil.move(path+'/'+source, no_face+source)
+            print 'found not face:',source
         tt_opencvDnn += time.time() - t
         fpsOpencvDnn = frame_count / tt_opencvDnn
         label = "OpenCV DNN ; FPS : {:.2f}".format(fpsOpencvDnn)
@@ -66,13 +78,13 @@ if __name__ == "__main__" :
 
         cv2.imshow("Face Detection Comparison", outOpencvDnn)
 
-        vid_writer.write(outOpencvDnn)
-        if frame_count == 1:
-            tt_opencvDnn = 0
+        #vid_writer.write(outOpencvDnn)
+        #if frame_count == 1:
+        #    tt_opencvDnn = 0
         
         k = cv2.waitKey(10)
         if k == 27:
             break
     cv2.destroyAllWindows()
-    vid_writer.release()
+    #vid_writer.release()
 
